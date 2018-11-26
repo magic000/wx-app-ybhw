@@ -1,0 +1,78 @@
+
+
+
+<!-- 行列数 -->
+<view style="margin-left:8%; margin-top:10px; font-size:15px;" >行列数:</view>
+<view class='select_box'  style='font-size:15px;' >
+  <view class='select' catchtap='selectTapR'>
+    行:
+    <text class='select_text'>{{selectData[index_r]}}</text>
+    <image class='select_img {{show_r&&"select_img_rotate"}}' src='../image/dd.png'></image>
+  </view>
+
+  <view class='option_box' style='height:{{show_r?(selectData.length*50):0}}rpx; margin-top:30px;'>
+    <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTapR'>{{item}}</text>
+  </view>
+
+
+  <view class='select' catchtap='selectTapC' style="margin-left:50%;">
+    列:
+    <text class='select_text'>{{selectData[index_c]}}</text>
+    <image class='select_img {{show_c&&"select_img_rotate"}}' src='../image/dd.png'></image>
+  </view>
+
+  <view class='option_box' style='height:{{show_c?(selectData.length*50):0}}rpx; margin-left:50%; margin-top:30px;'>
+    <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTapC'>{{item}}</text>
+  </view>
+
+
+</view>
+
+<!-- /起始点 -->
+  <view style="margin-left:8%; margin-top:10px; font-size:15px;" >起始点:</view>
+<view class='select_box' style='font-size:15px;' >
+  <view class='select' catchtap='selectTapX'>
+    行:
+    <text class='select_text'>{{selectDataX[index_x]}}</text>
+    <image class='select_img {{show_x&&"select_img_rotate"}}' src='../image/dd.png'></image>
+  </view>
+
+  <view class='option_box' style='height:{{show_x?(selectDataX.length*50):0}}rpx; margin-top:30px;'>
+    <text class='option' style='{{index==selectDataX.length-1&&"border:0;"}}' wx:for='{{selectDataX}}' wx:key='this' data-index='{{index}}' catchtap='optionTapX'>{{item}}</text>
+  </view>
+
+
+  <view class='select' catchtap='selectTapY' style="margin-left:50%;">
+    列:
+    <text class='select_text'>{{selectDataY[index_y]}}</text>
+    <image class='select_img {{show_y&&"select_img_rotate"}}' src='../image/dd.png'></image>
+  </view>
+
+  <view class='option_box' style='height:{{show_y?(selectDataY.length*50):0}}rpx; margin-left:50%; margin-top:30px;'>
+    <text class='option' style='{{index==selectDataY.length-1&&"border:0;"}}' wx:for='{{selectDataY}}' wx:key='this' data-index='{{index}}' catchtap='optionTapY'>{{item}}</text>
+  </view>
+
+
+
+</view>
+
+
+<view style="margin-top:10px; margin-left:8%;" class='images_view'>
+  <view wx:for="{{images}}" wx:for-item="itemss" wx:for-index="i" >
+
+    <block wx:for="{{itemss}}" wx:for-item="items" wx:for-index="j" >
+      <image class='images' style="width:35px;height:35px;margin-left:0px;" src="{{items}}" bindtap="bindImageBlur" id="{{i}},{{j}}"> </image>
+      <!-- <icon type="success" size="40" /> -->
+      <!-- <block class="flex-item"  style="margin-left:5px;" > {{i}},{{j}}={{items}} </block> -->
+    </block>
+
+
+  </view>
+</view>
+
+
+<button class='but_start' style="height:40px; margin-top:10px;" bindtap="bindStartBlur"> {{butVal}} </button>
+<!-- <button style="height:50px; margin-top:10px;"> 重置 </button> -->
+
+<view style="margin-top:50px; margin-left:40%; font-size:10px;" > 小程序:[一笔破解] </view>
+<!-- <view style="margin-top:0px; margin-left:60%; font-size:10px;"> 邮箱:1198276338@qq.com</view> -->

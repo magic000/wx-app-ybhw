@@ -1,0 +1,72 @@
+/**index.wxss**/
+
+page{
+  background: #8ae0f0;
+}
+.select_box{
+  background: #74ddeb;
+  width: 80%;
+  margin-top: 10rpx;
+  margin-left: 8%;
+  
+  display: flex;
+  flex-direction: row;
+  /* margin: 30rpx auto; */
+  /* position: relative; */
+   /* border: 1px solid #9decf1; */
+}
+.select{
+  box-sizing: border-box;
+  width: 100%;
+  height: 50rpx;
+  /* border:0px solid #0d8a81; */
+  border-radius: 8rpx;
+  display: flex;
+  /* align-items: center; */
+  padding: 0 0rpx;
+}
+.select_text{
+  font-size: 32rpx;
+  flex: 1;
+}
+.select_img{
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+  /* transition:transform 0.3s; */
+}
+.select_img_rotate{
+  transform:rotate(180deg); 
+}
+.option_box{
+  position: absolute;
+  /* top: 70rpx; */
+  width: 30%;
+  /* border:0px solid #42d3dd; */
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  /* border-top: 0; */
+  background: #42d3dd;
+  /* transition: height 0.3s; */
+}
+.option{
+  display: block;
+  line-height: 18rpx;
+  font-size: 35rpx;
+  border-bottom: 1px solid #efefef;
+  padding: 15rpx;
+}
+
+.images_view{
+  line-height: 14px;
+}
+
+.images{
+  border-left: 1px solid #eff4f5;
+  border-top: 1px solid #e8f1f1;  
+}
+
+.but_start{
+  background: #9cc4f1;
+}
