@@ -5,14 +5,14 @@ const app = getApp()
 
 Page({
   data: {
-    selectData: ['2', '3', '4', '5', '6', '7', '8 '], //下拉列表的数据
+    selectData: [ '3', '4', '5', '6', '7', '8 '], //下拉列表的数据
     show_r: false, //控制下拉列表的显示隐藏，false隐藏、true显示
     index_r: 0,
     show_c: false, //控制下拉列表的显示隐藏，false隐藏、true显示
     index_c: 0,
 
-    selectDataX: [], //下拉列表的数据
-    selectDataY: [], //下拉列表的数据
+    selectDataX: ['1','2','3'], //下拉列表的数据
+    selectDataY: ['1','2','3'], //下拉列表的数据
     show_x: false, //控制下拉列表的显示隐藏，false隐藏、true显示
     index_x: 0,
     show_y: false, //控制下拉列表的显示隐藏，false隐藏、true显示
@@ -54,8 +54,8 @@ Page({
            "../image/end-u.png", "../image/end-d.png", "../image/end-l.png", "../image/end-r.png",],
 
     cnt: 0,
-    r: 0,
-    c: 0,
+    r: 3,
+    c: 3,
     sx: 1,
     sy: 1,
     arr: [],
@@ -328,7 +328,7 @@ Page({
   // 开始计算路径
   step: function(arr, x, y, s) {
     this.data.cnt++
-      if (((new Date()).getTime() - this.data.start_time) > 20000) {
+      if (((new Date()).getTime() - this.data.start_time) > 10000) {
         console.log("cnt:", this.data.cnt, ", time:", (new Date()).getTime() - this.data.start_time)
         // var tmp = new Array()
         // for (var i = 0; i < this.data.r; i++) {
@@ -401,7 +401,7 @@ Page({
     return false
   },
 
-  printResult_2_forward: function(arr, x, y, d) {
+   printResult_2_forward: function(arr, x, y, d) {
     if (x < 0 || y < 0 || x >= this.data.r || y >= this.data.c) {
       return 0
     }
@@ -523,6 +523,14 @@ Page({
       }
     }
 
+    if (sx <0 || sy <0 ||sx >=this.data.r ||  sy>=this.data.c) {
+      wx.showModal({
+        content: "请选择起始点",
+        showCancel: false
+      });
+      return
+    }
+
 
     console.log("start", this.data.arr, sx, sy, arr)
     for (var i = 0; i < this.data.r; i++) {
@@ -535,7 +543,7 @@ Page({
 
     if (!this.step(arr, sx, sy, dn)) {
       console.log("NONE", arr, this.data.cnt, ", time:", (new Date()).getTime() - this.data.start_time)
-      if (((new Date()).getTime() - this.data.start_time) > 20000) {
+      if (((new Date()).getTime() - this.data.start_time) > 10000) {
         wx.showModal({
           content: "超时",
           showCancel: false
