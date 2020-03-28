@@ -1,84 +1,72 @@
-
-
-
 <!-- 行列数 -->
-<view style="margin-left:8%; margin-top:20rpx; font-size:40rpx;" >行列数:</view>
-<view class='select_box'  style='font-size:40rpx;' >
-  <view class='select' catchtap='selectTapR'>
-    行: 
-    <text class='select_text' style="margin-left:8%; font-size:40rpx;" >{{selectData[index_r]}}</text>
-    <image class='select_img {{show_r&&"select_img_rotate"}}' src='../image/dd.png'></image>
-  </view>
+<view style="margin-left:8%; margin-top:20rpx; font-size:40rpx;">行列数:</view>
+<view class='select_box' style='font-size:40rpx;'>
+	<view class='select' catchtap='selectTapR'>
+		行:
+		<text class='select_text' style="margin-left:8%; font-size:40rpx;" >{{selectData[index_r]}}</text>
+		<image class='select_img {{show_r&&"select_img_rotate"}}' src='../image/dd.png'></image>
+	</view>
 
-  <view class='option_box' style='height:{{show_r?(selectData.length*52):0}}rpx; width:100rpx;margin-top:60rpx;'>
-    <text class='option' style='font-size:50rpx;{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTapR'>{{item}}</text>
-  </view>
+	<view class='option_box' style='height:{{show_r?(selectData.length*50):0}}rpx; width:100rpx;margin-top:60rpx;'>
+		<text class='option' style='font-size:40rpx;{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTapR'>{{item}}</text>
+	</view>
 
 
-  <view class='select' catchtap='selectTapC' style="margin-left:50%;">
-    列:
-    <text class='select_text' style="margin-left:8%; font-size:40rpx;">{{selectData[index_c]}}</text>
-    <image class='select_img {{show_c&&"select_img_rotate"}}' src='../image/dd.png'></image>
-  </view>
+	<view class='select' catchtap='selectTapC' style="margin-left:50%;">
+		列:
+		<text class='select_text' style="margin-left:8%; font-size:40rpx;">{{selectData[index_c]}}</text>
+		<image class='select_img {{show_c&&"select_img_rotate"}}' src='../image/dd.png'></image>
+	</view>
 
-  <view class='option_box' style='height:{{show_c?(selectData.length*52):0}}rpx; margin-left:60%; width:100rpx;margin-top:60rpx;'>
-    <text class='option' style='font-size:50rpx;{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTapC'>{{item}}</text>
-  </view>
+	<view class='option_box' style='height:{{show_c?(selectData.length*50):0}}rpx; margin-left:60%; width:100rpx;margin-top:60rpx;'>
+		<text class='option' style='font-size:40rpx;{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTapC'>{{item}}</text>
+	</view>
 
 
 </view>
 
 <!-- /起始点 -->
-  <view style="margin-left:8%; margin-top:20rpx; font-size:40rpx;" >起始点:</view>
-<view class='select_box' style='font-size:40rpx;' >
-  <view class='select' catchtap='selectTapX'>
-    行:
-    <text class='select_text'  style="margin-left:8%; font-size:40rpx;" >{{selectDataX[index_x]}}</text>
-    <image class='select_img {{show_x&&"select_img_rotate"}}' src='../image/dd.png'></image>
-  </view>
+<view style="margin-left:8%; margin-top:20rpx; font-size:40rpx;">起始点:</view>
+<view class='select_box' style='font-size:40rpx;'>
+	<view class='select' catchtap='selectTapX'>
+		行:
+		<text class='select_text'  style="margin-left:8%; font-size:40rpx;" >{{selectDataX[index_x]}}</text>
+		<image class='select_img {{show_x&&"select_img_rotate"}}' src='../image/dd.png'></image>
+	</view>
 
-  <view class='option_box' style='height:{{show_x?(selectDataX.length*52):0}}rpx; width:100rpx;margin-top:60rpx;'>
-    <text class='option' style='font-size:50rpx;{{index==selectDataX.length-1&&"border:0;"}}' wx:for='{{selectDataX}}' wx:key='this' data-index='{{index}}' catchtap='optionTapX'>{{item}}</text>
-  </view>
-
-
-  <view class='select' catchtap='selectTapY' style="margin-left:50%;">
-    列:
-    <text class='select_text'  style="margin-left:8%; font-size:40rpx;" >{{selectDataY[index_y]}}</text>
-    <image class='select_img {{show_y&&"select_img_rotate"}}' src='../image/dd.png'></image>
-  </view>
-
-  <view class='option_box' style='height:{{show_y?(selectDataY.length*52):0}}rpx; margin-left:60%; width:100rpx;margin-top:60rpx;'>
-    <text class='option' style='font-size:50rpx;{{index==selectDataY.length-1&&"border:0;"}}' wx:for='{{selectDataY}}' wx:key='this' data-index='{{index}}' catchtap='optionTapY'>{{item}}</text>
-  </view>
+	<view class='option_box' style='height:{{show_x?(selectDataX.length*50):0}}rpx; width:100rpx;margin-top:60rpx;'>
+		<text class='option' style='font-size:40rpx;{{index==selectDataX.length-1&&"border:0;"}}' wx:for='{{selectDataX}}' wx:key='this' data-index='{{index}}' catchtap='optionTapX'>{{item}}</text>
+	</view>
 
 
+	<view class='select' catchtap='selectTapY' style="margin-left:50%;">
+		列:
+		<text class='select_text'  style="margin-left:8%; font-size:40rpx;" >{{selectDataY[index_y]}}</text>
+		<image class='select_img {{show_y&&"select_img_rotate"}}' src='../image/dd.png'></image>
+	</view>
 
+	<view class='option_box' style='height:{{show_y?(selectDataY.length*50):0}}rpx; margin-left:60%; width:100rpx;margin-top:60rpx;'>
+		<text class='option' style='font-size:40rpx;{{index==selectDataY.length-1&&"border:0;"}}' wx:for='{{selectDataY}}' wx:key='this' data-index='{{index}}' catchtap='optionTapY'>{{item}}</text>
+	</view>
 </view>
 
+<view style="margin-top:30rpx; margin-left:5%;" class='images_view'>
+	<image class='images' style="width:70rpx;height:70rpx;margin-left:0%;" src="../image/0.png" bindtap="bindImageBlur" id="{{i}},{{j}}"> </image>
+	<block wx:for="{{images}}" wx:for-item="items" wx:for-index="i">
+			<image class='images' style="width:70rpx;height:70rpx;margin-left:0%;" src="../image/{{i+1}}.png" bindtap="bindImageBlur" id="{{i}},{{j}}"> </image>
+	</block>
 
-<view  style="margin-top:20rpx; margin-left:10%;"   > 
-  <block wx:for="{{images}}" wx:for-item="itemss" wx:for-index="i" >
-      <text style="margin-left:23rpx; font-size:60rpx;">  {{i+1}} </text>
-  </block>
-</view>
+	<view wx:for="{{images}}" wx:for-item="itemss" wx:for-index="i">
+		<image class='images' style="width:70rpx;height:70rpx;margin-left:0%;" src="../image/{{i+1}}.png" bindtap="bindImageBlur" id="{{i}},{{j}}"> </image>
+		<block wx:for="{{itemss}}" wx:for-item="items" wx:for-index="j">
+			<image class='images' style="width:70rpx;height:70rpx;margin-left:0%;" src="{{items}}" bindtap="bindImageBlur" id="{{i}},{{j}}"> </image>
+		</block>
+	</view>
 
-<view style="margin-top:20rpx; margin-left:5%;" class='images_view'>
-  <view wx:for="{{images}}" wx:for-item="itemss" wx:for-index="i" >
-    <text style="margin-left:0%; font-size:60rpx;">  {{i+1}} </text>
-    <block wx:for="{{itemss}}" wx:for-item="items" wx:for-index="j" >
-
-      <image class='images' style="width:70rpx;height:70rpx;margin-left:0%;" src="{{items}}" bindtap="bindImageBlur" id="{{i}},{{j}}"> </image>
-      <!-- <icon type="success" size="40" /> -->
-      <!-- <block class="flex-item"  style="margin-left:5rpx;" > {{i}},{{j}}={{items}} </block> -->
-    </block>
-
-
-  </view>
 </view>
 
 
 <button class='but_start' style="height:80rpx; margin-top:40rpx; margin-left:10%; font-size:30rpx; margin-right:15%;" bindtap="bindStartBlur"> {{butVal}} </button>
 <!-- <button style="height:50rpx; margin-top:20rpx;"> 重置 </button> -->
 
-<view style="margin-top:40rpx; margin-left:35%; font-size:20rpx;" > 小程序:[一笔破解] </view>
+<view style="margin-top:40rpx; margin-left:35%; font-size:20rpx;"> 小程序:[一笔破解] </view>

@@ -19,21 +19,9 @@ Page({
     index_y: 0,
 
 
-    image_end_src: "../image/end.png",
 
     image_f1_src: "../image/hui.png",
     image_0_src: "../image/-1.png",
-    image_1_src: "../image/1.png",
-
-    image_left_src: "../image/left.png",
-    image_right_src: "../image/right.png",
-    image_up_src: "../image/up.png",
-    image_down_src: "../image/down.png",
-
-    image_gr_left_src: "../image/gr.left.png",
-    image_gr_right_src: "../image/gr.right.png",
-    image_gr_up_src: "../image/gr.up.png",
-    image_gr_down_src: "../image/gr.down.png",
 
     image_lr_src: "../image/l-r.png",
     image_ud_src: "../image/u-d.png",
@@ -120,11 +108,19 @@ Page({
   },
   optionTapX(e) {
     var Index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+    var sx_tmp = Number(this.data.selectDataX[Index])
+    
+    var arr_index = "arr[" + (sx_tmp-1) + "][" + (this.data.sy-1) + "]"
+    var image_index = "images[" + (sx_tmp-1) + "][" + (this.data.sy-1) + "]";
+
     this.setData({
       index_x: Index,
-      sx: this.data.selectDataX[Index],
-      show_x: !this.data.show_x
+      sx: sx_tmp,
+      show_x: !this.data.show_x,
+      [arr_index]: 0,
+      [image_index]:  this.data.image_0_src
     });
+
   },
 
   // 点击下拉列表 选择起始点位置
@@ -134,12 +130,20 @@ Page({
     });
   },
   optionTapY(e) {
-    let Index = e.currentTarget.dataset.index //获取点击的下拉列表的下标
+    var Index = e.currentTarget.dataset.index //获取点击的下拉列表的下标
+    var sy_tmp = Number(this.data.selectDataY[Index])
+    
+    var arr_index = "arr[" + (this.data.sx-1) + "][" + (sy_tmp-1) + "]"
+    var image_index = "images[" + (this.data.sx-1) + "][" + (sy_tmp-1) + "]";
+
     this.setData({
       index_y: Index,
-      sy: this.data.selectDataY[Index],
-      show_y: !this.data.show_y
+      sy: sy_tmp,
+      show_y: !this.data.show_y,
+      [arr_index]: 0,
+      [image_index]:  this.data.image_0_src
     });
+
   },
 
 
@@ -149,6 +153,16 @@ Page({
     var arrsp = event.currentTarget.id.split(",")
     var i = parseInt(arrsp[0])
     var j = parseInt(arrsp[1])
+
+    // 行列数 范围外 点击无效
+    if(i>=this.data.r||j>=this.data.c){
+      return
+    }
+    // 起始点 点击无效
+    if(i==this.data.sx-1&&j==this.data.sy-1){
+      return
+    }
+    
 
     var arr_index = "arr[" + i + "][" + j + "]"
     var arr_val
@@ -422,7 +436,6 @@ Page({
 
   printResult_2: function(arr, x, y, sx, sy) {
     if (arr[x][y] == -1) {
-      // this.data.images[x][y] = this.data.image_end_src
       return
     }
     var small_index = this.printResult_2_forward(arr, x, y, -1)
@@ -441,57 +454,6 @@ Page({
       }
     }
     console.log("printResult_2 err, ", x, y, tmp)
-  },
-
-  // 路径显示
-  printResult: function(arr, x, y, sx, sy) {
-    if (arr[x][y] == -1) {
-      return
-    }
-
-    if (x + 1 < this.data.r) {
-      if (arr[x + 1][y] - arr[x][y] == 1) {
-        if (x == sx && y == sy) {
-          this.data.images[x][y] = this.data.image_gr_down_src
-        } else {
-          this.data.images[x][y] = this.data.image_down_src
-
-        }
-        return
-      }
-    }
-    if (y + 1 < this.data.c) {
-      if (arr[x][y + 1] - arr[x][y] == 1) {
-        if (x == sx && y == sy) {
-          this.data.images[x][y] = this.data.image_gr_right_src
-        } else {
-          this.data.images[x][y] = this.data.image_right_src
-        }
-        return
-      }
-    }
-    if (x - 1 >= 0) {
-      if (arr[x - 1][y] - arr[x][y] == 1) {
-        if (x == sx && y == sy) {
-          this.data.images[x][y] = this.data.image_gr_up_src
-        } else {
-          this.data.images[x][y] = this.data.image_up_src
-        }
-        return
-      }
-    }
-    if (y - 1 >= 0) {
-      if (arr[x][y - 1] - arr[x][y] == 1) {
-        if (x == sx && y == sy) {
-          this.data.images[x][y] = this.data.image_gr_left_src
-        } else {
-          this.data.images[x][y] = this.data.image_left_src
-        }
-        return
-      }
-    }
-    this.data.images[x][y] = this.data.image_end_src
-
   },
 
   bindStartBlur: function() {
@@ -561,7 +523,6 @@ Page({
 
     for (var i = 0; i < this.data.r; i++) {
       for (var j = 0; j < this.data.c; j++) {
-        // this.printResult(arr, i, j, sx, sy)
         this.printResult_2(arr, i, j, sx, sy)
       }
     }
