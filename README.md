@@ -1,8 +1,7 @@
 
 - 微信小程序  [一笔破解]
 
-![image](https://github.com/magic000/wx-app-ybhw/blob/master/pages/image/xcx.jpg)
-
+<img src="./pages/image/xcx.jpg" height="330" width="330" >
 - 例子1
+<img src="./pages/image/example.jpg" height="630" width="390" >
 
-![image](https://github.com/magic000/wx-app-ybhw/blob/master/pages/image/example.jpg)
